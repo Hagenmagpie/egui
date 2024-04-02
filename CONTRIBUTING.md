@@ -1,102 +1,99 @@
-# Contribution Guidelines
+# 贡献指南
 
-## Introduction
+## 介绍
 
-`egui` has been an on-and-off weekend project of mine since late 2018. I am grateful to any help I can get, but bear in mind that sometimes I can be slow to respond because I am busy with other things!
+`egui` 自2018年末以来一直是我周末的一项断断续续的项目。我对任何帮助都心存感激，但请记住，有时我会因为其他事情而反应较慢！
 
 / Emil
 
-## How to contribute to egui
-You want to contribute to egui, but don't know how? First of all: thank you! I created a special issue just for that: <https://github.com/emilk/egui/issues/3742>. But make sure you still read this file first :)
+## 如何为 egui 做出贡献
 
-## Discussion
+你想为 egui 做出贡献，但不知道如何开始？首先：谢谢你！我专门为此创建了一个特殊的问题：[链接](https://github.com/emilk/egui/issues/3742)。但请确保你先阅读本文件 :)
 
-You can ask questions, share screenshots and more at [GitHub Discussions](https://github.com/emilk/egui/discussions).
+## 讨论
 
-There is an `egui` discord at <https://discord.gg/vbuv9Xan65>.
+你可以在 [GitHub Discussions](https://github.com/emilk/egui/discussions) 上提问、分享截图等等。
 
+`egui` 的 Discord 频道在 [这里](https://discord.gg/vbuv9Xan65)。
 
-## Filing an issue
+## 提交问题
 
-[Issues](https://github.com/emilk/egui/issues) are for bug reports and feature requests. Issues are not for asking questions (use [Discussions](https://github.com/emilk/egui/discussions) or [Discord](https://discord.gg/vbuv9Xan65) for that).
+[问题](https://github.com/emilk/egui/issues) 用于报告错误和提出功能请求。问题不用于提问（使用 [Discussions](https://github.com/emilk/egui/discussions) 或 [Discord](https://discord.gg/vbuv9Xan65)）。
 
-Always make sure there is not already a similar issue to the one you are creating.
+请务必确保所创建的问题与已有的问题不相似。
 
-If you are filing a bug, please provide a way to reproduce it.
+如果你要报告错误，请提供重现错误的方法。
 
+## 提交 Pull Request
 
-## Making a PR
+对于小事情，可以直接打开一个 PR。对于更大的事情，请先提出一个问题（或找到一个已存在的问题），并宣布你计划着手解决某事。这样我们就可以避免多人做重复工作，并且你在开始工作之前可能会得到有用的反馈。
 
-For small things, just go ahead an open a PR. For bigger things, please file an issue first (or find an existing one) and announce that you plan to work on something. That way we will avoid having several people doing double work, and you might get useful feedback on the issue before you start working.
+浏览 [`ARCHITECTURE.md`](ARCHITECTURE.md) 以了解所有部分如何连接起来。
 
-Browse through [`ARCHITECTURE.md`](ARCHITECTURE.md) to get a sense of how all pieces connects.
+你可以通过运行 `./scripts/check.sh` 在本地测试你的代码。
 
-You can test your code locally by running `./scripts/check.sh`.
+当你有一个可行的东西时，打开一个草稿 PR。你可能会在早期获得一些有用的反馈！当你觉得 PR 准备就绪时，进行自审代码，然后将其开放供审阅。
 
-When you have something that works, open a draft PR. You may get some helpful feedback early!
-When you feel the PR is ready to go, do a self-review of the code, and then open it for review.
+不要担心 PR 中有很多小的提交 - 它们在合并后将被压缩成一个提交。
 
-Don't worry about having many small commits in the PR - they will be squashed to one commit once merged.
+请保持 PR 的大小和焦点。它越小，越有可能被合并。
 
-Please keep pull requests small and focused. The smaller it is, the more likely it is to get merged.
+## PR 审查
 
-## PR review
+大多数 PR 审查都由我来完成，但我非常感谢任何帮助我审查 PR！
 
-Most PR reviews are done by me, Emil, but I very much appreciate any help I can get reviewing PRs!
+向项目添加复杂性很容易，但请记住，每添加一行代码都需要永久维护，所以我们对合并的代码有很高的要求！
 
-It is very easy to add complexity to a project, but remember that each line of code added is code that needs to be maintained in perpetuity, so we have a high bar on what get merged!
+审查时，我们关注以下几点：
+* PR 标题和描述应该有帮助
+* 在 PR 描述中记录了重大更改
+* 代码应易读
+* 代码应有有用的文档字符串
+* 代码应遵循 [代码风格](CONTRIBUTING.md#code-style)
 
-When reviewing, we look for:
-* The PR title and description should be helpful
-* Breaking changes are documented in the PR description
-* The code should be readable
-* The code should have helpful docstrings
-* The code should follow the [Code Style](CONTRIBUTING.md#code-style)
+请注意，每个新的 egui 版本都会有一些重大更改，因此我们不介意在 PR 中有一些这样的更改。当然，如果可能的话，我们仍然会尽量避免它们，如果无法避免，我们会首先使用 `#[deprecated]` 属性弃用旧代码。
 
-Note that each new egui release have some breaking changes, so we don't mind having a few of those in a PR. Of course, we still try to avoid them if we can, and if we can't we try to first deprecate old code using the `#[deprecated]` attribute.
+## 创建 egui 的集成
 
-## Creating an integration for egui
+请参阅 [这里](https://docs.rs/egui/latest/egui/#integrating-with-egui) 了解如何编写自己的 egui 集成。
 
-See <https://docs.rs/egui/latest/egui/#integrating-with-egui> for how to write your own egui integration.
+如果你为某个引擎或渲染器创建了一个 `egui` 集成，请与世界分享！通过向 [`README.md`](README.md#integrations) 提交 PR 将其添加为一个链接，这样其他人就可以轻松找到它。
 
-If you make an integration for `egui` for some engine or renderer, please share it with the world!
-Make a PR to add it as a link to [`README.md`](README.md#integrations) so others can easily find it.
+## 测试 web 视图器
 
+* 使用 `scripts/build_demo_web.sh` 构建
+* 使用 `scripts/start_server.sh` 进行主机托管
+* 打开 <http://localhost:8888/index.html>
 
-## Testing the web viewer
-* Build with `scripts/build_demo_web.sh`
-* Host with `scripts/start_server.sh`
-* Open <http://localhost:8888/index.html>
+## 代码风格
 
+虽然使用即时模式 GUI 是简单的，但实现一个却更加棘手。你需要考虑很多微妙的边缘情况。`egui` 源代码有点凌乱，部分原因是它仍在不断发展。
 
-## Code Style
-While using an immediate mode gui is simple, implementing one is a lot more tricky. There are many subtle corner-case you need to think through. The `egui` source code is a bit messy, partially because it is still evolving.
+* 在编写自己的代码之前阅读一些代码
+* 将代码保持干净
+* 编写惯用的 rust
+* 遵循 [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
+* 在所有 `fn`、`struct`、`enum` 等周围添加空行
+* 使用 `// 像这样注释。` 而不是 `//像这样`
+* 使用 `TODO` 而不是 `FIXME`
+* 将你的 github handle 添加到你写的 `TODO` 中，例如：`TODO(emilk): clean this up`
+* 避免使用 `unsafe`
+* 避免使用 `unwrap` 和任何可能导致 panic 的代码
+* 为所有东西使用良好的命名
+* 为类型、`struct` 字段和所有 `pub fn` 添加文档字符串
+* 添加一些示例代码（文档测试）
+* 在使函数变得更长之前，请考虑添加一个辅助函数
+* 如果你只在一个函数中使用它，请将 `use` 语句放在该函数中。这样可以提高局部性，使代码更容易阅读和移动
+* 当导入一个 `trait` 来使用它的 trait 方法时，请这样做：`use Trait as _;`。这样让读者知道你为什么导入它，即使它看起来没有被使用
+* 避免双重否定
+* 将 `if !condition {} else {}` 改为 `if condition {} else {}`
+* 一组东西应按词典顺序排序（例如 `Cargo.toml` 中的 crate 依赖项）
+* 在适当时打破以上规则
 
-* Read some code before writing your own
-* Leave the code cleaner than how you found it
-* Write idiomatic rust
-* Follow the [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
-* Add blank lines around all `fn`, `struct`, `enum`, etc
-* `// Comment like this.` and not `//like this`
-* Use `TODO` instead of `FIXME`
-* Add your github handle to the `TODO`:s you write, e.g: `TODO(emilk): clean this up`
-* Avoid `unsafe`
-* Avoid `unwrap` and any other code that can cause panics
-* Use good names for everything
-* Add docstrings to types, `struct` fields and all `pub fn`
-* Add some example code (doc-tests)
-* Before making a function longer, consider adding a helper function
-* If you are only using it in one function, put the `use` statement in that function. This improves locality, making it easier to read and move the code
-* When importing a `trait` to use it's trait methods, do this: `use Trait as _;`. That lets the reader know why you imported it, even though it seems unused
-* Avoid double negatives
-* Flip `if !condition {} else {}`
-* Sets of things should be lexicographically sorted (e.g. crate dependencies in `Cargo.toml`)
-* Break the above rules when it makes sense
+### 好的写法：
 
-
-### Good:
-``` rust
-/// The name of the thing.
+```rust
+/// 事物的名称。
 pub fn name(&self) -> &str {
     &self.name
 }
@@ -118,21 +115,19 @@ fn foo(&self) {
 ```
 
 ### Coordinate system
-The left-top corner of the screen is `(0.0, 0.0)`,
-with `Vec2::X` increasing to the right and `Vec2::Y` increasing downwards.
+屏幕左上角的坐标是 `(0.0, 0.0)`，`Vec2::X` 增加到右边，`Vec2::Y` 增加到下面。
 
-`egui` uses logical _points_ as its coordinate system.
-Those related to physical _pixels_ by the `pixels_per_point` scale factor.
-For example, a high-dpi screen can have `pixels_per_point = 2.0`,
-meaning there are two physical screen pixels for each logical point.
+`egui` 使用逻辑 _点_ 作为其坐标系统。
+这些点通过 `pixels_per_point` 比例因子与物理 _像素_ 相关联。
+例如，高 DPI 屏幕可以有 `pixels_per_point = 2.0`，这意味着每个逻辑点有两个物理屏幕像素。
 
-Angles are in radians, and are measured clockwise from the X-axis, which has angle=0.
+角度以弧度表示，从 X 轴顺时针测量，角度为 0。
 
 
-### Avoid `unwrap`, `expect` etc.
-The code should never panic or crash, which means that any instance of `unwrap` or `expect` is a potential time-bomb. Even if you structured your code to make them impossible, any reader will have to read the code very carefully to prove to themselves that an `unwrap` won't panic. Often you can instead rewrite your code so as to avoid it. The same goes for indexing into a slice (which will panic on out-of-bounds) - it is often preferable to use `.get()`.
+### 避免使用 `unwrap`、`expect` 等
+代码不应该导致 panic 或崩溃，这意味着任何 `unwrap` 或 `expect` 的实例都是潜在的定时炸弹。即使你结构化了代码使它们不可能发生，任何读者仍然必须非常仔细地阅读代码来证明 `unwrap` 不会引发 panic。通常，你可以重写你的代码以避免它。对于切片的索引（超出边界时会引发 panic），通常最好使用 `.get()`。
 
-For instance:
+例如：
 
 ``` rust
 let first = if vec.is_empty() {
@@ -141,7 +136,8 @@ let first = if vec.is_empty() {
     vec[0]
 };
 ```
-can be better written as:
+
+可以更好地写成：
 
 ``` rust
 let Some(first) = vec.first() else {

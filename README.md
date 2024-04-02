@@ -9,25 +9,25 @@
 [![Apache](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/emilk/egui/blob/master/LICENSE-APACHE)
 [![Discord](https://img.shields.io/discord/900275882684477440?label=egui%20discord)](https://discord.gg/JFcEma9bJq)
 
-
 <div align="center">
 <a href="https://www.rerun.io/"><img src="media/rerun_io_logo.png" width="250"></a>
 
-egui development is sponsored by [Rerun](https://www.rerun.io/), a startup building<br>
-an SDK for visualizing streams of multimodal data.
+egui 的开发由 [Rerun](https://www.rerun.io/) 赞助，这是一家正在构建<br>
+用于可视化多模态数据流的 SDK 的初创公司。
 </div>
 
 ---
 
-👉 [Click to run the web demo](https://www.egui.rs/#demo) 👈
+👉 [点击运行 Web 演示](https://www.egui.rs/#demo) 👈
 
-egui (pronounced "e-gooey") is a simple, fast, and highly portable immediate mode GUI library for Rust. egui runs on the web, natively, and [in your favorite game engine](#integrations).
+egui（发音为 "e-gooey"）是一个简单、快速且高度可移植的 Rust 即时模式 GUI 库。egui 可在 Web、本地和[您喜爱的游戏引擎中运行](#integrations)。
 
-egui aims to be the easiest-to-use Rust GUI library, and the simplest way to make a web app in Rust.
+egui 的目标是成为最易于使用的 Rust GUI 库，以及使用 Rust 制作 Web 应用程序的最简单方法。
 
-egui can be used anywhere you can draw textured triangles, which means you can easily integrate it into your game engine of choice.
+egui 可以在任何您可以绘制纹理三角形的地方使用，这意味着您可以轻松地将其集成到您选择的游戏引擎中。
 
-[`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) is the official egui framework, which supports writing apps for Web, Linux, Mac, Windows, and Android.
+[`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) 是官方的 egui 框架，支持编写适用于 Web、Linux、Mac、Windows 和 Android 的应用程序。
+
 
 
 ## Example
@@ -48,7 +48,7 @@ ui.image(egui::include_image!("ferris.png"));
 
 <img alt="Dark mode" src="media/demo.gif"> &nbsp; &nbsp; <img alt="Light mode" src="media/demo_light_mode.png" height="278">
 
-## Sections:
+## 章节：
 
 * [Example](#example)
 * [Quick start](#quick-start)
@@ -66,128 +66,129 @@ ui.image(egui::include_image!("ferris.png"));
 ([egui 的中文翻译文档 / chinese translation](https://github.com/Re-Ch-Love/egui-doc-cn/blob/main/README_zh-hans.md))
 
 
-## Quick start
+## 快速入门
 
-There are simple examples in [the `examples/` folder](https://github.com/emilk/egui/blob/master/examples/). If you want to write a web app, then go to <https://github.com/emilk/eframe_template/> and follow the instructions. The official docs are at <https://docs.rs/egui>. For inspiration and more examples, check out the [the egui web demo](https://www.egui.rs/#demo) and follow the links in it to its source code.
+在 [examples/ 文件夹](https://github.com/emilk/egui/blob/master/examples/)中有简单的示例。如果您想编写一个 Web 应用程序，请访问 <https://github.com/emilk/eframe_template/> 并按照说明操作。官方文档位于 <https://docs.rs/egui>。要获取灵感和更多示例，请查看 [egui web 演示](https://www.egui.rs/#demo) 并按照其中的链接查看其源代码。
 
-If you want to integrate egui into an existing engine, go to the [Integrations](#integrations) section.
+如果您想将 egui 集成到现有的引擎中，请转到 [Integrations](#integrations) 章节。
 
-If you have questions, use [GitHub Discussions](https://github.com/emilk/egui/discussions). There is also [an egui discord server](https://discord.gg/JFcEma9bJq). If you want to contribute to egui, please read the [Contributing Guidelines](https://github.com/emilk/egui/blob/master/CONTRIBUTING.md).
+如果您有问题，请使用 [GitHub Discussions](https://github.com/emilk/egui/discussions)。还有 [一个 egui Discord 服务器](https://discord.gg/JFcEma9bJq)。如果您想为 egui 做贡献，请阅读 [贡献指南](https://github.com/emilk/egui/blob/master/CONTRIBUTING.md)。
+
 
 ## Demo
 
-[Click to run egui web demo](https://www.egui.rs/#demo) (works in any browser with Wasm and WebGL support). Uses [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe).
+[点击运行 egui web 演示](https://www.egui.rs/#demo)（适用于具有 Wasm 和 WebGL 支持的任何浏览器）。使用 [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe)。
 
-To test the demo app locally, run `cargo run --release -p egui_demo_app`.
+要在本地测试演示应用程序，请运行 `cargo run --release -p egui_demo_app`。
 
-The native backend is [`egui_glow`](https://github.com/emilk/egui/tree/master/crates/egui_glow) (using [`glow`](https://crates.io/crates/glow)) and should work out-of-the-box on Mac and Windows, but on Linux you need to first run:
+本机后端是 [`egui_glow`](https://github.com/emilk/egui/tree/master/crates/egui_glow)（使用 [`glow`](https://crates.io/crates/glow)），应该可以在 Mac 和 Windows 上直接使用，但在 Linux 上您需要先运行：
 
 `sudo apt-get install -y libclang-dev libgtk-3-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev`
 
-On Fedora Rawhide you need to run:
+在 Fedora Rawhide 上，您需要运行：
 
 `dnf install clang clang-devel clang-tools-extra libxkbcommon-devel pkg-config openssl-devel libxcb-devel gtk3-devel atk fontconfig-devel`
 
-**NOTE**: This is just for the demo app - egui itself is completely platform agnostic!
+**注意**：这仅适用于演示应用程序 - egui 本身完全与平台无关！
 
-## Goals
+## 目标
 
-* The easiest to use GUI library
-* Responsive: target 60 Hz in debug build
-* Friendly: difficult to make mistakes, and shouldn't panic
-* Portable: the same code works on the web and as a native app
-* Easy to integrate into any environment
-* A simple 2D graphics API for custom painting ([`epaint`](https://docs.rs/epaint)).
-* No callbacks
-* Pure immediate mode
-* Extensible: [easy to write your own widgets for egui](https://github.com/emilk/egui/blob/master/crates/egui_demo_lib/src/demo/toggle_switch.rs)
-* Modular: You should be able to use small parts of egui and combine them in new ways
-* Safe: there is no `unsafe` code in egui
-* Minimal dependencies
+* 最易于使用的 GUI 库
+* 响应式：在调试构建中目标为 60 Hz
+* 用户友好：难以犯错，不应该出现 panic
+* 可移植：相同的代码可以在 Web 和本机应用程序上运行
+* 易于集成到任何环境中
+* 用于自定义绘制的简单的 2D 图形 API（[`epaint`](https://docs.rs/epaint)）
+* 无回调
+* 纯即时模式
+* 可扩展：[轻松编写自己的 egui 小部件](https://github.com/emilk/egui/blob/master/crates/egui_demo_lib/src/demo/toggle_switch.rs)
+* 模块化：您应该能够使用 egui 的小部分，并以新的方式组合它们
+* 安全：egui 中没有 `unsafe` 代码
+* 最小的依赖关系
 
-egui is *not* a framework. egui is a library you call into, not an environment you program for.
+egui 不是一个框架。egui 是一个你调用的库，而不是一个你为之编程的环境。
 
-**NOTE**: egui does not claim to have reached all these goals yet! egui is still work in progress.
+**注意**：egui 尚未达到所有这些目标！egui 仍然在积极开发中。
 
-### Non-goals
+### 非目标
 
-* Become the most powerful GUI library
-* Native looking interface
-* Advanced and flexible layouts (that's fundamentally incompatible with immediate mode)
+* 成为最强大的 GUI 库
+* 本机外观界面
+* 高级和灵活的布局（这与即时模式基本不兼容）
 
-## State
+## 状态
 
-egui is in active development. It works well for what it does, but it lacks many features and the interfaces are still in flux. New releases will have breaking changes.
+egui 正在积极开发中。它很好地完成了它的任务，但它缺乏许多功能，并且接口仍在变化中。新版本将具有破坏性变更。
 
-Still, egui can be used to create professional looking applications, like [the Rerun Viewer](https://app.rerun.io/).
+尽管如此，egui 可用于创建专业的应用程序，如 [Rerun Viewer](https://app.rerun.io/)。
 
-### Features
+### 特性
 
-* Widgets: label, text button, hyperlink, checkbox, radio button, slider, draggable value, text editing, color picker, spinner
-* Images
-* Layouts: horizontal, vertical, columns, automatic wrapping
-* Text editing: multiline, copy/paste, undo, emoji supports
-* Windows: move, resize, name, minimize and close. Automatically sized and positioned.
-* Regions: resizing, vertical scrolling, collapsing headers (sections), panels
-* Rendering: Anti-aliased rendering of lines, circles, text and convex polygons.
-* Tooltips on hover
-* Accessibility via [AccessKit](https://accesskit.dev/)
-* Label text selection
-* And more!
+* 小部件：标签、文本按钮、超链接、复选框、单选按钮、滑块、可拖动的值、文本编辑、颜色选择器、微调器
+* 图像
+* 布局：水平、垂直、列、自动换行
+* 文本编辑：多行、复制/粘贴、撤销、支持表情符号
+* 窗口：移动、调整大小、命名、最小化和关闭。自动调整大小和定位。
+* 区域：调整大小、垂直滚动、折叠标题（部分）、面板
+* 渲染：线条、圆、文本和凸多边形的抗锯齿渲染。
+* 悬停提示
+* 通过 [AccessKit](https://accesskit.dev/) 实现无障碍访问
+* 标签文本选择
+* 以及更多！
+
 
 <img src="media/widget_gallery_0.23.gif" width="50%">
 
-Light Theme:
+## 亮色主题
 
 <img src="media/widget_gallery_0.23_light.png" width="50%">
 
+## 依赖项
+`egui` 有一组默认的最小依赖项：
 
-## Dependencies
-`egui` has a minimal set of default dependencies:
+- [`ab_glyph`](https://crates.io/crates/ab_glyph)
+- [`ahash`](https://crates.io/crates/ahash)
+- [`nohash-hasher`](https://crates.io/crates/nohash-hasher)
+- [`parking_lot`](https://crates.io/crates/parking_lot)
 
-* [`ab_glyph`](https://crates.io/crates/ab_glyph)
-* [`ahash`](https://crates.io/crates/ahash)
-* [`nohash-hasher`](https://crates.io/crates/nohash-hasher)
-* [`parking_lot`](https://crates.io/crates/parking_lot)
+较重的依赖项被保持在 `egui` 之外，即使是作为可选的部分。
+`egui` 中没有任何不完全适用于 Wasm 的代码。
 
-Heavier dependencies are kept out of `egui`, even as opt-in.
-No code that isn't fully Wasm-friendly is part of `egui`.
+要将图像加载到 `egui` 中，可以使用官方的 [`egui_extras`](https://github.com/emilk/egui/tree/master/crates/egui_extras) 包。
 
-To load images into `egui` you can use the official [`egui_extras`](https://github.com/emilk/egui/tree/master/crates/egui_extras) crate.
+另一方面，[`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) 有许多依赖项，包括 [`winit`](https://crates.io/crates/winit)，[`image`](https://crates.io/crates/image)，图形库，剪贴板库等等。
 
-[`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) on the other hand has a lot of dependencies, including [`winit`](https://crates.io/crates/winit), [`image`](https://crates.io/crates/image), graphics crates, clipboard crates, etc,
+## egui 适合谁？
 
-## Who is egui for?
+当您希望以简单的方式创建 GUI，或者您想将 GUI 添加到游戏引擎中时，egui 旨在成为最佳选择。
 
-egui aims to be the best choice when you want a simple way to create a GUI, or you want to add a GUI to a game engine.
+如果您不使用 Rust，则不适合使用 egui。如果您想要看起来本地的 GUI，egui 不适合您。如果您希望在升级时不会出现问题，egui 还不适合您（尚未）。
 
-If you are not using Rust, egui is not for you. If you want a GUI that looks native, egui is not for you. If you want something that doesn't break when you upgrade it, egui isn't for you (yet).
+但是，如果您正在使用 Rust 编写交互式内容，需要简单的 GUI，则可能适合使用 egui。
 
-But if you are writing something interactive in Rust that needs a simple GUI, egui may be for you.
+## 集成
 
+egui 旨在易于集成到您正在开发的任何现有游戏引擎或平台中。
+egui 本身不知道或不关心它运行在哪个操作系统上，也不知道如何将事物渲染到屏幕上 - 这是 egui 集成的工作。
 
-## Integrations
+集成需要在每一帧执行以下操作：
 
-egui is built to be easy to integrate into any existing game engine or platform you are working on.
-egui itself doesn't know or care on what OS it is running or how to render things to the screen - that is the job of the egui integration.
+- **输入**：收集输入（鼠标、触摸、键盘、屏幕大小等），并将其提供给 egui
+- 调用应用程序 GUI 代码
+- **输出**：处理 egui 输出（光标更改、粘贴、纹理分配等）
+- **绘制**：渲染 egui 生成的三角形网格（请参阅 [OpenGL 示例](https://github.com/emilk/egui/blob/master/crates/egui_glow/src/painter.rs)）
 
-An integration needs to do the following each frame:
+### 官方集成
 
-* **Input**: Gather input (mouse, touches, keyboard, screen size, etc) and give it to egui
-* Call into the application GUI code
-* **Output**: Handle egui output (cursor changes, paste, texture allocations, …)
-* **Painting**: Render the triangle mesh egui produces (see [OpenGL example](https://github.com/emilk/egui/blob/master/crates/egui_glow/src/painter.rs))
+以下是官方的 egui 集成：
 
-### Official integrations
+- [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe)：将相同的应用程序编译为 Web/Wasm 和桌面/本机。使用 `egui-winit` 和 `egui_glow` 或 `egui-wgpu`
+- [`egui_glow`](https://github.com/emilk/egui/tree/master/crates/egui_glow)：在本地和 Web 上使用 [glow](https://github.com/grovesNL/glow) 渲染 egui，并制作本地应用程序
+- [`egui-wgpu`](https://github.com/emilk/egui/tree/master/crates/egui-wgpu)：用于与 [wgpu](https://crates.io/crates/wgpu)（WebGPU API）集成
+- [`egui-winit`](https://github.com/emilk/egui/tree/master/crates/egui-winit)：用于与 [winit](https://github.com/rust-windowing/winit) 集成
 
-These are the official egui integrations:
+### 第三方集成
 
-* [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) for compiling the same app to web/wasm and desktop/native. Uses `egui-winit` and `egui_glow` or `egui-wgpu`
-* [`egui_glow`](https://github.com/emilk/egui/tree/master/crates/egui_glow) for rendering egui with [glow](https://github.com/grovesNL/glow) on native and web, and for making native apps
-* [`egui-wgpu`](https://github.com/emilk/egui/tree/master/crates/egui-wgpu) for [wgpu](https://crates.io/crates/wgpu) (WebGPU API)
-* [`egui-winit`](https://github.com/emilk/egui/tree/master/crates/egui-winit) for integrating with [winit](https://github.com/rust-windowing/winit)
-
-### 3rd party integrations
 
 * [`amethyst_egui`](https://github.com/jgraef/amethyst_egui) for [the Amethyst game engine](https://amethyst.rs/)
 * [`egui-ash`](https://github.com/MatchaChoco010/egui-ash) for [`ash`](https://github.com/ash-rs/ash) (a very lightweight wrapper around Vulkan)
@@ -213,123 +214,119 @@ These are the official egui integrations:
 * [`egui_skia`](https://github.com/lucasmerlin/egui_skia) for [skia](https://github.com/rust-skia/rust-skia/tree/master/skia-safe)
 * [`smithay-egui`](https://github.com/Smithay/smithay-egui) for [smithay](https://github.com/Smithay/smithay/)
 * [`tauri-egui`](https://github.com/tauri-apps/tauri-egui) for [tauri](https://github.com/tauri-apps/tauri)
+### 编写自己的 egui 集成
 
-### Writing your own egui integration
-Missing an integration for the thing you're working on? Create one, it's easy!
-See <https://docs.rs/egui/latest/egui/#integrating-with-egui>.
+如果你正在开发的项目缺少一个 egui 集成，那么创建一个是很容易的！
+请参阅 <https://docs.rs/egui/latest/egui/#integrating-with-egui>。
 
+## 为什么选择即时模式
 
-## Why immediate mode
+`egui` 是一个即时模式 GUI 库，与 *保留模式* GUI 库相对。保留模式和即时模式的区别最好通过按钮的例子来说明：在保留 GUI 中，你创建一个按钮，将其添加到某个 UI 中，并安装一些点击处理程序（回调）。按钮保留在 UI 中，要更改其上的文本，需要存储对它的某种引用。相比之下，在即时模式中，你立即显示按钮并与之交互，每帧都这样做（例如，每秒 60 次）。这意味着不需要任何点击处理程序，也不需要存储对其的任何引用。在 `egui` 中，这看起来像这样：`if ui.button("Save file").clicked() { save(file); }`。
 
-`egui` is an [immediate mode GUI library](https://en.wikipedia.org/wiki/Immediate_mode_GUI), as opposed to a *retained mode* GUI library. The difference between retained mode and immediate mode is best illustrated with the example of a button: In a retained GUI you create a button, add it to some UI and install some on-click handler (callback). The button is retained in the UI, and to change the text on it you need to store some sort of reference to it. By contrast, in immediate mode you show the button and interact with it immediately, and you do so every frame (e.g. 60 times per second). This means there is no need for any on-click handler, nor to store any reference to it. In `egui` this looks like this: `if ui.button("Save file").clicked() { save(file); }`.
+关于即时模式的更详细描述可以在 [egui 文档](https://docs.rs/egui/latest/egui/#understanding-immediate-mode) 中找到。
 
-A more detailed description of immediate mode can be found [in the `egui` docs](https://docs.rs/egui/latest/egui/#understanding-immediate-mode).
+这两种系统都有优点和缺点。
 
-There are advantages and disadvantages to both systems.
+简单来说，即时模式 GUI 库易于使用，但功能较弱。
 
-The short of it is this: immediate mode GUI libraries are easier to use, but less powerful.
+### 即时模式的优点
 
-### Advantages of immediate mode
-#### Usability
-The main advantage of immediate mode is that the application code becomes vastly simpler:
+#### 可用性
+即时模式的主要优点是应用程序代码变得极其简单：
 
-* You never need to have any on-click handlers and callbacks that disrupts your code flow.
-* You don't have to worry about a lingering callback calling something that is gone.
-* Your GUI code can easily live in a simple function (no need for an object just for the UI).
-* You don't have to worry about app state and GUI state being out-of-sync (i.e. the GUI showing something outdated), because the GUI isn't storing any state - it is showing the latest state *immediately*.
+* 你永远不需要任何点击处理程序和打断代码流的回调。
+* 你不必担心悬挂的回调调用已经消失的内容。
+* 你的 GUI 代码可以轻松地存在于一个简单的函数中（不需要一个专门用于 UI 的对象）。
+* 你不必担心应用状态和 GUI 状态不同步（即 GUI 显示过时的东西），因为 GUI 不存储任何状态 - 它立即显示最新状态。
 
-In other words, a whole lot of code, complexity and bugs are gone, and you can focus your time on something more interesting than writing GUI code.
+换句话说，大量的代码、复杂性和错误都消失了，你可以把时间专注于比编写 GUI 代码更有趣的事情上。
 
-### Disadvantages of immediate mode
+### 即时模式的缺点
 
-#### Layout
-The main disadvantage of immediate mode is it makes layout more difficult. Say you want to show a small dialog window in the center of the screen. To position the window correctly the GUI library must first know the size of it. To know the size of the window the GUI library must first layout the contents of the window. In retained mode this is easy: the GUI library does the window layout, positions the window, then checks for interaction ("was the OK button clicked?").
+#### 布局
+即时模式的主要缺点是它使布局变得更加困难。假设你想在屏幕中央显示一个小对话框窗口。要正确定位窗口，GUI 库必须首先知道窗口的大小。为了知道窗口的大小，GUI 库必须首先布局窗口的内容。在保留模式中，这很容易：GUI 库进行窗口布局，定位窗口，然后检查交互（“OK 按钮被点击了吗？”）。
 
-In immediate mode you run into a paradox: to know the size of the window, we must do the layout, but the layout code also checks for interaction ("was the OK button clicked?") and so it needs to know the window position *before* showing the window contents. This means we must decide where to show the window *before* we know its size!
+在即时模式中，你遇到了一个悖论：为了知道窗口的大小，我们必须做布局，但布局代码也检查交互（“OK 按钮被点击了吗？”），因此它需要在显示窗口内容之前就知道窗口位置。这意味着我们必须在知道大小之前决定在哪里显示窗口！
 
-This is a fundamental shortcoming of immediate mode GUIs, and any attempt to resolve it comes with its own downsides.
+这是即时模式 GUI 的一个根本缺陷，任何试图解决它的尝试都会带来自己的缺点。
 
-One workaround is to store the size and use it the next frame. This produces a frame-delay for the correct layout, producing occasional flickering the first frame something shows up. `egui` does this for some things such as windows and grid layouts.
+一个解决方法是存储大小并在下一帧使用它。这会产生正确布局的延迟一帧，导致第一次出现时会出现偶发性闪烁。对于某些事情（如窗口和网格布局）`egui` 会这样做。
 
-You can also call the layout code twice (once to get the size, once to do the interaction), but that is not only more expensive, it's also complex to implement, and in some cases twice is not enough. `egui` never does this.
+你也可以两次调用布局代码（一次用于获取大小，一次用于进行交互），但这不仅更昂贵，而且实现起来也更复杂，而且在某些情况下两次可能还不够。`egui` 从不这样做。
 
-For "atomic" widgets (e.g. a button) `egui` knows the size before showing it, so centering buttons, labels etc is possible in `egui` without any special workarounds.
+对于“原子”部件（例如按钮），`egui` 在显示之前就知道大小，因此在 `egui` 中可以轻松地居中按钮、标签等，无需任何特殊的解决方法。
 
-#### CPU usage
-Since an immediate mode GUI does a full layout each frame, the layout code needs to be quick. If you have a very complex GUI this can tax the CPU. In particular, having a very large UI in a scroll area (with very long scrollback) can be slow, as the content needs to be laid out each frame.
+#### CPU 使用
+由于即时模式 GUI 每帧都要进行全面的布局，所以布局代码必须快速。如果你的 GUI 很复杂，这可能会给 CPU 带来压力。特别是，在滚动区域中拥有非常庞大的 UI（非常长的回滚）可能会很慢，因为需要每帧布局内容。
 
-If you design the GUI with this in mind and refrain from huge scroll areas (or only lay out the part that is in view) then the performance hit is generally pretty small. For most cases you can expect `egui` to take up 1-2 ms per frame, but `egui` still has a lot of room for optimization (it's not something I've focused on yet). `egui` only repaints when there is interaction (e.g. mouse movement) or an animation, so if your app is idle, no CPU is wasted.
+如果你考虑到了这一点并且避免了巨大的滚动区域（或者只布局在视图中的部分），那么性能损失通常会很小。对于大多数情况，你可以期望 `egui` 占用每帧 1-2 毫秒，但 `egui` 仍然有很大的优化空间（这不是我目前专注的内容）。`egui` 仅在有交互（例如鼠标移动）或动画时重新绘制，因此如果你的应用程序处于空闲状态，则不会浪费 CPU。
 
-If your GUI is highly interactive, then immediate mode may actually be more performant compared to retained mode. Go to any web page and resize the browser window, and you'll notice that the browser is very slow to do the layout and eats a lot of CPU doing it. Resize a window in `egui` by contrast, and you'll get smooth 60 FPS at no extra CPU cost.
+如果你的 GUI 高度交互，那么即时模式实际上可能比保留模式更高效。打开任何网页并调整浏览器窗口大小，你会注意到浏览器在做布局时非常慢，耗费了大量 CPU。相比之下，在 `egui` 中调整窗口大小，你将以额外的 CPU 成本获得平滑的 60 FPS。
 
+#### ID
+即使在即时模式库（如 `egui`）中，也有一些 GUI 状态需要 GUI 库保留。这包括窗口的位置和大小以及用户在某些 UI 中滚动了多远。在这些情况下，你需要为 `egui` 提供一个唯一标识符的种子（在父 UI 中是唯一的）。例如：默认情况下，`egui` 使用窗口标题作为唯一标识符来存储窗口位置。如果你想要两个具有相同名称的窗口（或一个具有动态名称的窗口），你必须为 `egui` 提供一些其他的 ID 来源（一些唯一的整数或字符串）。
 
-#### IDs
-There are some GUI state that you want the GUI library to retain, even in an immediate mode library such as `egui`. This includes position and sizes of windows and how far the user has scrolled in some UI. In these cases you need to provide `egui` with a seed of a unique identifier (unique within the parent UI). For instance: by default `egui` uses the window titles as unique IDs to store window positions. If you want two windows with the same name (or one window with a dynamic name) you must provide some other ID source to `egui` (some unique integer or string).
+`egui` 还需要跟踪哪个部件正在与之交互（例如，哪个滑块正在被拖动）。`egui` 也为此使用唯一标识符，但在这种情况下，标识符是自动生成的，因此用户无需担心。特别是，拥有两个具有相同名称的按钮不是问题（这与 [`Dear ImGui`](https://github.com/ocornut/imgui) 相反）。
 
-`egui` also needs to track which widget is being interacted with (e.g. which slider is being dragged). `egui` uses unique IDs for this as well, but in this case the IDs are automatically generated, so there is no need for the user to worry about it. In particular, having two buttons with the same name is no problem (this is in contrast with [`Dear ImGui`](https://github.com/ocornut/imgui)).
+总的来说，ID 处理是一个罕见的不便，不是一个很大的缺点。
+## 常见问题解答
 
-Overall, ID handling is a rare inconvenience, and not a big disadvantage.
+还请参阅 [GitHub 讨论](https://github.com/emilk/egui/discussions/categories/q-a)。
 
+### 我能否在 `egui` 中使用非拉丁字符？
+可以！但你需要使用 [`Context::set_fonts`](https://docs.rs/egui/latest/egui/struct.Context.html#method.set_fonts) 安装自己的字体（`.ttf` 或 `.otf`）。
 
-## FAQ
+### 我能否自定义 egui 的外观？
+可以！你可以使用 `Context::set_style` 自定义颜色、间距、字体和大小等一切。
 
-Also see [GitHub Discussions](https://github.com/emilk/egui/discussions/categories/q-a).
+这还不如 CSS 那么强大，[但这将会改进](https://github.com/emilk/egui/issues/3284)。
 
-### Can I use `egui` with non-latin characters?
-Yes! But you need to install your own font (`.ttf` or `.otf`) using [`Context::set_fonts`](https://docs.rs/egui/latest/egui/struct.Context.html#method.set_fonts).
-
-### Can I customize the look of egui?
-Yes! You can customize the colors, spacing, fonts and sizes of everything using `Context::set_style`.
-
-This is not yet as powerful as say CSS, [but this is going to improve](https://github.com/emilk/egui/issues/3284).
-
-Here is an example (from https://github.com/a-liashenko/TinyPomodoro):
+以下是一个示例（来自 https://github.com/a-liashenko/TinyPomodoro）：
 
 <img src="media/pompodoro-skin.png" width="50%">
 
-### How do I use egui with `async`?
-If you call `.await` in your GUI code, the UI will freeze, which is very bad UX. Instead, keep the GUI thread non-blocking and communicate with any concurrent tasks (`async` tasks or other threads) with something like:
-* Channels (e.g. [`std::sync::mpsc::channel`](https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html)). Make sure to use [`try_recv`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html#method.try_recv) so you don't block the gui thread!
-* `Arc<Mutex<Value>>` (background thread sets a value; GUI thread reads it)
+### 我如何在 `async` 中使用 egui？
+如果在你的 GUI 代码中调用了 `.await`，UI 将会冻结，这对用户体验非常不好。相反，保持 GUI 线程非阻塞，并使用以下方式与任何并发任务（`async` 任务或其他线程）进行通信：
+* 通道（例如 [`std::sync::mpsc::channel`](https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html)）。确保使用 [`try_recv`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html#method.try_recv) 以避免阻塞 GUI 线程！
+* `Arc<Mutex<Value>>`（后台线程设置一个值；GUI 线程读取它）
 * [`poll_promise::Promise`](https://docs.rs/poll-promise)
 * [`eventuals::Eventual`](https://docs.rs/eventuals/latest/eventuals/struct.Eventual.html)
 * [`tokio::sync::watch::channel`](https://docs.rs/tokio/latest/tokio/sync/watch/fn.channel.html)
 
-### How to I create a file dialog?
+### 我如何创建一个文件对话框？
+[rfd](https://docs.rs/rfd/latest/rfd/) 的异步版本同时支持本机和 Wasm。请参见此处的示例应用 https://github.com/woelper/egui_pick_file，该示例还可通过 [gitub 页面](https://woelper.github.io/egui_pick_file/) 进行演示。
 
-The async version of [rfd](https://docs.rs/rfd/latest/rfd/) supports both native and Wasm. See example app here https://github.com/woelper/egui_pick_file which also has a demo available via [gitub pages](https://woelper.github.io/egui_pick_file/).
+### 关于辅助功能，例如屏幕阅读器？
+egui 包括对 [AccessKit](https://accesskit.dev/) 的可选支持，它目前在 Windows 和 macOS 上实现了原生辅助功能 API。这个功能在 eframe 中是默认启用的。对于 AccessKit 尚不支持的平台，包括 Web，在 [web demo](https://www.egui.rs/#demo) 中可以在“Backend”选项卡中启用试验性的内置屏幕阅读器。
 
-### What about accessibility, such as screen readers?
-egui includes optional support for [AccessKit](https://accesskit.dev/), which currently implements the native accessibility APIs on Windows and macOS. This feature is enabled by default in eframe. For platforms that AccessKit doesn't yet support, including web, there is an experimental built-in screen reader; in [the web demo](https://www.egui.rs/#demo) you can enable it in the "Backend" tab.
+关于 egui 辅助功能的最初讨论在 <https://github.com/emilk/egui/issues/167>。现在 AccessKit 支持已经合并，为未来的辅助功能工作提供了坚实的基础，请在特定辅助功能问题上提出新问题。
 
-The original discussion of accessibility in egui is at <https://github.com/emilk/egui/issues/167>. Now that AccessKit support is merged, providing a strong foundation for future accessibility work, please open new issues on specific accessibility problems.
+### [egui](https://docs.rs/egui) 和 [eframe](https://github.com/emilk/egui/tree/master/crates/eframe) 之间有什么区别？
 
-### What is the difference between [egui](https://docs.rs/egui) and [eframe](https://github.com/emilk/egui/tree/master/crates/eframe)?
+`egui` 是一个用于布局和与按钮、滑块等进行交互的 2D 用户界面库。
+`egui` 不知道自己是在 Web 还是在本地运行，也不知道如何收集输入或在屏幕上显示东西。
+这是*集成*或*后端*的工作。
 
-`egui` is a 2D user interface library for laying out and interacting with buttons, sliders, etc.
-`egui` has no idea if it is running on the web or natively, and does not know how to collect input or show things on screen.
-That is the job of *the integration* or *backend*.
+通常使用 `egui` 从游戏引擎中调用（例如 [`bevy_egui`](https://docs.rs/bevy_egui)），
+但你也可以使用 `eframe` 独立使用 `egui`。`eframe` 具有 Web 和本地的集成，并处理输入和渲染。
+`eframe` 中的 _frame_ 既表示你的 egui 应用程序所在的帧，也表示“框架”（`eframe` 是一个框架，`egui` 是一个库）。
 
-It is common to use `egui` from a game engine (using e.g. [`bevy_egui`](https://docs.rs/bevy_egui)),
-but you can also use `egui` stand-alone using `eframe`. `eframe` has integration for web and native, and handles input and rendering.
-The _frame_ in `eframe` stands both for the frame in which your egui app resides and also for "framework" (`eframe` is a framework, `egui` is a library).
+### 如何在 egui 区域中渲染 3D 物体？
+有多种方法可以将 egui 与 3D 结合使用。最简单的方法是使用一个 3D 库，并让 egui 放在 3D 视图的上方。例如，参见 [`bevy_egui`](https://github.com/mvlabat/bevy_egui) 或 [`three-d`](https://github.com/asny/three-d)。
 
-### How do I render 3D stuff in an egui area?
-There are multiple ways to combine egui with 3D. The simplest way is to use a 3D library and have egui sit on top of the 3D view. See for instance [`bevy_egui`](https://github.com/mvlabat/bevy_egui) or [`three-d`](https://github.com/asny/three-d).
-
-If you want to embed 3D into an egui view there are two options:
+如果你想将 3D 嵌入到 egui 视图中，有两种选择：
 
 #### `Shape::Callback`
-Example:
+示例：
 * <https://github.com/emilk/egui/blob/master/examples/custom_3d_glow/src/main.rs>
 
-`Shape::Callback` will call your code when egui gets painted, to show anything using whatever the background rendering context is. When using [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) this will be [`glow`](https://github.com/grovesNL/glow). Other integrations will give you other rendering contexts, if they support `Shape::Callback` at all.
+`Shape::Callback` 在 egui 绘制时会调用你的代码，使用背景渲染上下文来显示任何内容。当使用 [`eframe`](https://github.com/emilk/egui/tree/master/crates/eframe) 时，这将是 [`glow`](https://github.com/grovesNL/glow)。其他集成将提供其他渲染上下文，如果它们支持 `Shape::Callback` 的话。
 
-#### Render-to-texture
-You can also render your 3D scene to a texture and display it using [`ui.image(…)`](https://docs.rs/egui/latest/egui/struct.Ui.html#method.image). You first need to convert the native texture to an [`egui::TextureId`](https://docs.rs/egui/latest/egui/enum.TextureId.html), and how to do this depends on the integration you use.
+#### 渲染到纹理
+你也可以将 3D 场景渲染到纹理，并使用 [`ui.image(…)`](https://docs.rs/egui/latest/egui/struct.Ui.html#method.image) 显示它。你首先需要将本机纹理转换为 [`egui::TextureId`](https://docs.rs/egui/latest/egui/enum.TextureId.html)，如何做取决于你使用的集成。
 
-Examples:
-* Using [`egui-miniquad`]( https://github.com/not-fl3/egui-miniquad): https://github.com/not-fl3/egui-miniquad/blob/master/examples/render_to_egui_image.rs
+示例：
+* 使用 [`egui-miniquad`]( https://github.com/not-fl3/egui-miniquad)：https://github.com/not-fl3/egui-miniquad/blob/master/examples/render_to_egui_image.rs
 
 
 ## Other
@@ -397,4 +394,69 @@ Default fonts:
 
 egui development is sponsored by [Rerun](https://www.rerun.io/), a startup building<br>
 an SDK for visualizing streams of multimodal data.
+</div>## 其他
+
+### 规范和设计选择
+
+所有坐标都以屏幕空间坐标表示，其中 (0, 0) 位于左上角。
+
+所有颜色都具有预乘 alpha，除非另有说明。
+
+egui 使用生成器模式来构建小部件。例如：`ui.add(Label::new("Hello").text_color(RED));` 我不是很喜欢生成器模式（它在实现和使用上都相当冗长），但在 Rust 拥有命名和默认参数之前，这是我们能做的最好的。为了减少一些冗长，有一些常见情况下的辅助函数，比如 `ui.label("Hello");`。
+
+而不是使用匹配的 `begin/end` 风格的函数调用（这可能会出错），egui 更喜欢使用传递给包装函数的 `FnOnce` 闭包。虽然 lambda 有点丑陋，但我希望能找到一个更好看的解决方案。有关此的更多讨论，请参见 <https://github.com/emilk/egui/issues/1004#issuecomment-1001650754>。
+
+egui 使用一个单一的 `RwLock` 对 `Context` 数据的每次访问进行短时间锁定。这是为了保持实现简单和事务性，并允许用户并行运行他们的 UI 逻辑。而不是创建互斥锁守卫，egui 使用传递给包装函数的闭包，例如 `ctx.input(|i| i.key_down(Key::A))`。这是为了减少用户意外双重锁定 `Context` 的可能性，这将导致死锁。
+
+### 灵感
+
+唯一的 [Dear ImGui](https://github.com/ocornut/imgui) 是一个出色的 C++ 即时模式 GUI，适用于许多后端。该库改变了我对 GUI 代码的看法，将 GUI 编程从我讨厌做的事情转变为我现在喜欢做的事情。
+
+### 名称
+
+该库和项目的名称是 "egui"，发音为 "e-gooey"。请不要将其写成 "EGUI"。
+
+该库最初被称为 "Emigui"，但在 2020 年更名为 "egui"。
+
+## 鸣谢
+
+egui 作者和维护者：Emil Ernerfeldt ([@emilk](https://github.com/emilk))。
+
+值得注意的贡献者包括：
+
+* [@n2](https://github.com/n2)：[移动 Web 输入和 IME 支持](https://github.com/emilk/egui/pull/253)
+* [@optozorax](https://github.com/optozorax)：[任意小部件数据存储](https://github.com/emilk/egui/pull/257)
+* [@quadruple-output](https://github.com/quadruple-output)：[多点触控](https://github.com/emilk/egui/pull/306)
+* [@EmbersArc](https://github.com/EmbersArc)：[绘图](https://github.com/emilk/egui/pulls?q=+is%3Apr+author%3AEmbersArc)
+* [@AsmPrgmC3](https://github.com/AsmPrgmC3)：[Web 的正确 sRGBA 混合](https://github.com/emilk/egui/pull/650)
+* [@AlexApps99](https://github.com/AlexApps99)：[`egui_glow`](https://github.com/emilk/egui/pull/685)
+* [@mankinskin](https://github.com/mankinskin)：[上下文菜单](https://github.com/emilk/egui/pull/543)
+* [@t18b219k](https://github.com/t18b219k)：[将 glow 渲染器移植到 Web](https://github.com/emilk/egui/pull/868)
+* [@danielkeller](https://github.com/danielkeller)：[`Context` 重构](https://github.com/emilk/egui/pull/1050)
+* [@MaximOsipenko](https://github.com/MaximOsipenko)：[`Context` 锁重构](https://github.com/emilk/egui/pull/2625)
+* [@mwcampbell](https://github.com/mwcampbell)：[AccessKit](https://github.com/AccessKit/accesskit) [集成](https://github.com/emilk/egui/pull/2294)
+* [@hasenbanck](https://github.com/hasenbanck)、[@s-nie](https://github.com/s-nie)、[@Wumpf](https://github.com/Wumpf)：
+[`egui-wgpu`](https://github.com/emilk/egui/tree/master/crates/egui-wgpu)
+* [@jprochazk](https://github.com/jprochazk)：[egui 图像 API](https://github.com/emilk/egui/issues/3291)
+* 以及[其他许多人](https://github.com/emilk/egui/graphs/contributors?type=a)。
+
+egui 使用 [MIT](LICENSE-MIT) 或 [Apache-2.0](LICENSE-APACHE) 许可证。
+
+* 来自 [lyon_geom](https://docs.rs/lyon_geom/latest/lyon_geom/) 的立方贝塞尔曲线和二次贝塞尔曲线的展平算法。
+
+默认字体：
+
+* `emoji-icon-font.ttf`：[版权所有 (c) 2014 John Slegers](https://github.com/jslegers/emoji-icon-font)，MIT 许可证
+* `Hack-Regular.ttf`：来自 <https://github.com/source-foundry/Hack>，[MIT 许可证](https://github.com/source-foundry/Hack/blob/master/LICENSE.md)
+* `NotoEmoji-Regular.ttf`：[google.com/get/noto](https://google.com/get/noto)，[SIL 开源字体许可证](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+* `Ubuntu-Light.ttf` 由 [Dalton Maag](http://www.daltonmaag.com/) 创建：[Ubuntu 字体许可证](https://ubuntu.com/legal/font-licence)
+
+---
+
+<div align="center">
+<a href="https://www.rerun.io/"><img src="media/rerun_io_logo.png" width="440"></a>
+
+egui 开发由 [Rerun](https://www.rerun.io/) 赞助，一个正在构建<br>
+用于可视化多模态数据流的 SDK 的创业公司。
 </div>
+
